@@ -1,3 +1,11 @@
+        
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    
+  public static void generateWords(String str, int cs, int ts, int ssf, Character[] spots){
+      if(ssf == ts){
           for(int i = 0; i < spots.length; i++){
               System.out.print(spots[i]);
           }
@@ -34,3 +42,17 @@
     HashSet<Character> unique = new HashSet<>();
     String ustr = "";
     for (char ch : str.toCharArray()) {
+      if (unique.contains(ch) == false) {
+        unique.add(ch);
+        ustr += ch;
+      }
+    }
+    
+    Character[] spots = new Character[k];
+    
+    
+    generateWords(ustr, 0, k, 0, spots);
+    
+  }
+
+}
