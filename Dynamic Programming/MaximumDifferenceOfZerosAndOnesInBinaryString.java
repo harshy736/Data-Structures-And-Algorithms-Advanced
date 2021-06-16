@@ -5,22 +5,7 @@ public class Main {
 
 	public static int solution(String str) {
 		//like kadane's
-		
-		boolean checkzero = false;
-		for(int i = 0; i < str.length(); i++){
-		    char ch = str.charAt(i);
-		    
-		    if(ch == '0'){
-		        checkzero = true;
-		        break;
-		    }
-		}
-		
-		//all are 1
-		if(checkzero == false){
-		    return -1;
-		}
-		
+	
 		int cdiff = 0;
 		int mdiff = 0;
 		
@@ -40,6 +25,11 @@ public class Main {
 		    if(cdiff < 0){
 		        cdiff = 0;
 		    } 
+		}
+		
+		//all are 1
+		if(mdiff == 0){
+		    return -1;
 		}
 
 		return mdiff;
