@@ -10,9 +10,38 @@ class Main {
             this.val = val;
         }
     }
-
+    
+    //have to give a new LL which is a exact copy of given LL
     public static ListNode copyRandomList(ListNode head) {
-        return head;
+        HashMap<ListNode, ListNode> map = new HashMap<ListNode, ListNode>();
+        
+        ListNode dummy = new ListNode(-1);
+        ListNode prev = dummy;
+        
+        ListNode curr = head;
+        while(curr != null){
+            prev.next = new ListNode(curr.val);
+            prev = prev.next;
+            
+            map.put(curr, prev);//assign node of same pos in hashmap
+            curr = curr.next;
+            
+            
+        }
+        
+        ListNode nHead = dummy.next;
+        
+        ListNode c1 = head;
+        ListNode c2 = nHead;
+        
+        while(c2 != null){
+            c2.random = (map.get(c1.random) != null) ? map.get(c1.random) : null;
+            
+            c1 = c1.next;
+            c2 = c2.next;
+        }
+        
+        return nHead;
     }
 
     public static void main(String[] args) {
