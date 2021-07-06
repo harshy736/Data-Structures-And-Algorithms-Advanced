@@ -145,7 +145,7 @@ class Main {
             return -1;
         }
         
-        return head.data;
+        return this.head.data;
     }
 
     public int getLast() {
@@ -153,7 +153,7 @@ class Main {
             return -1;
         }
         
-        return tail.data;
+        return this.tail.data;
     }
 
   }
